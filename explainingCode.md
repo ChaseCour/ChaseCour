@@ -1,21 +1,12 @@
 # Explaining The Code
 ### BJSFin.py
-This is the server code for the project. It uses a TCP threaded server that was based on the Capitalize 
-server from Toal. The biggest change is using Pickle to help send an array opposed to a string. Each 
-section of the array indicates a number to help the client decide what information to show. The genral
-format is [who won (0 if still playing), player total, dealer total, number of cards in the players hand,
-index of the cards since both have the same dictonary, <-same (next given amount of spots have this), 
-index for dealers cards, <-same (same until the end and negitive if we show the back of it)]. This code
-I wrote and ran locally first then put it in the context of a server. Most of it is exactly how I would
-code a local blackjack game.
+This is the server code for the project. It uses a TCP threaded server that was based on the Capitalize server from Toal. The biggest change is using Pickle to help send an array opposed to a string. Each section of the array indicates a number to help the client decide what information to show. The genral format is [who won (0 if still playing), player total, dealer total, number of cards in the players hand, index of the cards since both have the same dictonary, <-same (next given amount of spots have this), index for dealers cards, <-same (same until the end and negitive if we show the back of it)]. This codeI wrote and ran locally first then put it in the context of a server. Most of it is exactly how I wouldcode a local blackjack game.
 
 ### BJSFin.py
-This is built off the same client code from Toal. It uses TKinter to show the information and uses a
-grid with a lot of if statements to show what it needs. Since the array is how it accesses the information
-there is a lot of varible numbers that are based around how many cards the player has. Each time we close
-the master, reset it, then show the updated info until the user supplies input.
+This is built off the same client code from Toal. It uses TKinter to show the information and uses agrid with a lot of if statements to show what it needs. Since the array is how it accesses the information there is a lot of varible numbers that are based around how many cards the player has. Each time we close the master, reset it, then show the updated info until the user supplies input.
 
 ### Cards
-This is just a folder where the cards are named and within the client code there is an index to get the
-file name of everything in her based on the value and the suit of the card. There is all 52 cards and one
-back of card png that are used.
+This is just a folder where the cards are named and within the client code there is an index to get the file name of everything in her based on the value and the suit of the card. There is all 52 cards and one back of card png that are used.
+
+### CIf I Planned To Publish, What Would Change?
+The threaded TCP server works pretty well but there a few coding decisions that I would change if I wanted this to be a better game. The graphics are tough and I would want to try to overlay the cards so you see the corners which might keep the size more consistent. Unfortunately with the grid system that I used in TKinter I was unable to overlay the cards consistantly. I tried for a little but it didn't work out very well. I also would code something to show the updated board the automatically give out a new hand when the game ends. With the client-server relationship I didn't know how to recive and decipher two arrays. Since I only knew how to recive one array effectivly I had to have the user see the old board, hit new deal, then recive the new board. I also would try out a few new methods to see if I could consolidate the code so that it took less processing power. The last thing I would do is explore the ways to send information over the server so that I can see if an array is really an effective way, or if it causes too many for loops and if statements. I couldn't imagine sending the images is the way to go, which is why I went with a dictonary and a key to access it. But exploring other options would be nice.
